@@ -1,5 +1,7 @@
-package fr.birdo.endercargo;
+package fr.birdo.endercargo.items;
 
+import fr.birdo.endercargo.EnderCargo;
+import fr.birdo.endercargo.Utils.EnderCargoData;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -16,17 +18,18 @@ import java.util.Map;
 
 public class EnderCargoLinker implements Listener {
 
+    public static final String itemName = "§3Ender Cargo Linker";
+    public static final Material itemMaterial = Material.ENDER_EYE;
     private static Map<Player, Location> input = new HashMap<>();
 
     public EnderCargoLinker(EnderCargo enderCargo) {
     }
 
     @EventHandler
-    public static void onClick(PlayerInteractEvent event) {
+    public void onClick(PlayerInteractEvent event) {
         if (event.getItem() != null) {
-            if (event.getItem().getType() == Material.ENDER_EYE) {
-                System.out.println(event.getItem().getItemMeta().getDisplayName());
-                if (event.getItem().hasItemMeta() && event.getItem().getItemMeta().hasDisplayName() && event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§3Ender Cargo Linker")) {
+            if (event.getItem().getType() == itemMaterial) {
+                if (event.getItem().hasItemMeta() && event.getItem().getItemMeta().hasDisplayName() && event.getItem().getItemMeta().getDisplayName().equalsIgnoreCase(itemName)) {
                     event.setCancelled(true);
                     if (event.getAction() == Action.RIGHT_CLICK_BLOCK && event.getPlayer().isSneaking()) {
                         if (event.getClickedBlock().getType() == Material.DISPENSER) {

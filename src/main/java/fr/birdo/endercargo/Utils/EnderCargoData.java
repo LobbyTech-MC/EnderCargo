@@ -1,5 +1,6 @@
-package fr.birdo.endercargo;
+package fr.birdo.endercargo.Utils;
 
+import fr.birdo.endercargo.EnderCargo;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
