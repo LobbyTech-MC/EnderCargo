@@ -139,7 +139,7 @@ public class EnderCargoOutput implements Listener {
                             Container outputContainerTick = (Container) location.getWorld().getBlockAt(location).getState();
                             ItemStack[] outputContentTick = outputContainerTick.getInventory().getStorageContents();
 
-                            Container inputContainer = (Container) location.getWorld().getBlockAt(EnderCargoData.getInputCargo(location)).getState();
+                            Container inputContainer = (Container) EnderCargoData.getInputCargo(location).getWorld().getBlockAt(EnderCargoData.getInputCargo(location)).getState();
                             ItemStack[] inputContent = inputContainer.getInventory().getStorageContents();
 
                             for (int i = 0; i < 9; i++) {
