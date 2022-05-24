@@ -39,7 +39,7 @@ public class EnderCargoInput implements Listener {
     public void onBreak(BlockBreakEvent event) {
         if (event.getBlock().getType() == blockMaterial) {
             Dispenser d = (Dispenser) event.getBlock().getState();
-            if (d.getCustomName().equalsIgnoreCase(blockName)) {
+            if (d.getCustomName() != null && d.getCustomName().equalsIgnoreCase(blockName)) {
                 for (String string : EnderCargoData.getLinkedCargo()) {
                     String[] str = string.split(" ");
                     Location location = new Location(Bukkit.getWorld(str[0]), Integer.parseInt(str[1]), Integer.parseInt(str[2]), Integer.parseInt(str[3]));
@@ -57,11 +57,11 @@ public class EnderCargoInput implements Listener {
     public void onMove(InventoryMoveItemEvent event) {
         if (event.getSource().getType() == InventoryType.HOPPER && event.getDestination().getType() == InventoryType.DISPENSER) {
             Container destinationContainer = (Container) event.getDestination().getHolder();
-            if (destinationContainer.getCustomName().equalsIgnoreCase(blockName))
+            if (destinationContainer.getCustomName() != null && destinationContainer.getCustomName().equalsIgnoreCase(blockName))
                 event.setCancelled(true);
         } else if (event.getDestination().getType() == InventoryType.HOPPER && event.getSource().getType() == InventoryType.DISPENSER) {
             Container sourceContainer = (Container) event.getSource().getHolder();
-            if (sourceContainer.getCustomName().equalsIgnoreCase(blockName))
+            if (sourceContainer.getCustomName() != null && sourceContainer.getCustomName().equalsIgnoreCase(blockName))
                 event.setCancelled(true);
         }
     }
@@ -79,7 +79,7 @@ public class EnderCargoInput implements Listener {
                 if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
                     if (!event.getPlayer().isSneaking() || event.getItem() == null) {
                         Container container = (Container) event.getClickedBlock().getState();
-                        if (container.getCustomName().equalsIgnoreCase(blockName)) {
+                        if (container.getCustomName() != null && container.getCustomName().equalsIgnoreCase(blockName)) {
                             event.setCancelled(true);
                             Inventory inventory = Bukkit.createInventory(null, InventoryType.DISPENSER, "§3Ender Cargo Node view (Input)");
                             inventory.setContents(container.getInventory().getContents());
@@ -89,7 +89,7 @@ public class EnderCargoInput implements Listener {
                         if (event.getItem().hasItemMeta() && event.getItem().getItemMeta().hasDisplayName()) {
                             String displayName = event.getItem().getItemMeta().getDisplayName();
                             Container container = (Container) event.getClickedBlock().getState();
-                            if (container.getCustomName().equalsIgnoreCase(blockName))
+                            if (container.getCustomName() != null && container.getCustomName().equalsIgnoreCase(blockName))
                                 if (displayName.equalsIgnoreCase("§7Cargo Node §c(Input)"))
                                     event.setCancelled(true);
                         }

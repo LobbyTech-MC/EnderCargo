@@ -39,7 +39,7 @@ public class EnderCargoOutput implements Listener {
     public void onBreak(BlockBreakEvent event) {
         if (event.getBlock().getType() == blockMaterial) {
             Dispenser d = (Dispenser) event.getBlock().getState();
-            if (d.getCustomName().equalsIgnoreCase(blockName)) {
+            if (d.getCustomName() != null && d.getCustomName().equalsIgnoreCase(blockName)) {
                 Container container = (Container) event.getBlock().getState();
                 container.getInventory().clear();
                 EnderCargoData.unlinkCargo(event.getBlock().getLocation());
@@ -51,11 +51,11 @@ public class EnderCargoOutput implements Listener {
     public void onMove(InventoryMoveItemEvent event) {
         if (event.getSource().getType() == InventoryType.HOPPER && event.getDestination().getType() == InventoryType.DISPENSER) {
             Container destinationContainer = (Container) event.getDestination().getHolder();
-            if (destinationContainer.getCustomName().equalsIgnoreCase(blockName))
+            if (destinationContainer.getCustomName() != null && destinationContainer.getCustomName().equalsIgnoreCase(blockName))
                 event.setCancelled(true);
         } else if (event.getDestination().getType() == InventoryType.HOPPER && event.getSource().getType() == InventoryType.DISPENSER) {
             Container sourceContainer = (Container) event.getSource().getHolder();
-            if (sourceContainer.getCustomName().equalsIgnoreCase(blockName))
+            if (sourceContainer.getCustomName() != null && sourceContainer.getCustomName().equalsIgnoreCase(blockName))
                 event.setCancelled(true);
         }
     }
@@ -67,13 +67,13 @@ public class EnderCargoOutput implements Listener {
                 if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
                     if (!event.getPlayer().isSneaking() || event.getItem() == null) {
                         Container container = (Container) event.getClickedBlock().getState();
-                        if (container.getCustomName().equalsIgnoreCase(blockName))
+                        if (container.getCustomName() != null && container.getCustomName().equalsIgnoreCase(blockName))
                             event.setCancelled(true);
                     } else if (event.getPlayer().isSneaking() && event.getItem() != null) {
                         if (event.getItem().hasItemMeta() && event.getItem().getItemMeta().hasDisplayName()) {
                             String displayName = event.getItem().getItemMeta().getDisplayName();
                             Container container = (Container) event.getClickedBlock().getState();
-                            if (container.getCustomName().equalsIgnoreCase(blockName))
+                            if (container.getCustomName() != null && container.getCustomName().equalsIgnoreCase(blockName))
                                 if (displayName.equalsIgnoreCase("§7Cargo Node §c(Output)") || displayName.equalsIgnoreCase("§6Advanced Cargo Node §c(Output)"))
                                     event.setCancelled(true);
                         }
