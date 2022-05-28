@@ -18,7 +18,7 @@ import java.util.Map;
 
 public class EnderCargoLinker implements Listener {
 
-    public static final String itemName = "§3Ender Cargo Linker";
+    public static final String itemName = "§3末影节点链接器";
     public static final Material itemMaterial = Material.ENDER_EYE;
     private static Map<Player, Location> input = new HashMap<>();
 
@@ -42,36 +42,36 @@ public class EnderCargoLinker implements Listener {
                                     Location loc = event.getClickedBlock().getLocation();
                                     Location loc2 = EnderCargoData.getInputCargo(location);
                                     if (loc.getWorld() == loc2.getWorld() && loc.getX() == loc2.getX() && loc.getY() == loc2.getY() && loc.getZ() == loc2.getZ()) {
-                                        event.getPlayer().sendMessage(ChatColor.RED + "Ender Cargo already linked !");
+                                        event.getPlayer().sendMessage(ChatColor.RED + "末影节点已被链接!");
                                         linked = true;
                                     }
                                 }
                                 if (!linked) {
                                     input.put(event.getPlayer(), event.getClickedBlock().getLocation());
-                                    event.getPlayer().sendMessage(ChatColor.GREEN + "Input Ender Cargo selected !");
+                                    event.getPlayer().sendMessage(ChatColor.GREEN + "输入选定的末影节点!");
                                 }
                             }
                             if (d.getCustomName().equalsIgnoreCase(EnderCargoOutput.blockName) || d.getCustomName().equalsIgnoreCase(EnderCargoAdvancedOutput.blockName)) {//Output
                                 boolean linked = false;
                                 if (input.get(event.getPlayer()) == null) {
-                                    event.getPlayer().sendMessage(ChatColor.RED + "Please select Input Ender Cargo Node !");
+                                    event.getPlayer().sendMessage(ChatColor.RED + "请输入下一个末影节点!");
                                 } else {
                                     for (String string : EnderCargoData.getLinkedCargo()) {
                                         String[] str = string.split(" ");
                                         Location location = new Location(Bukkit.getWorld(str[0]), Integer.parseInt(str[1]), Integer.parseInt(str[2]), Integer.parseInt(str[3]));
                                         Location loc = event.getClickedBlock().getLocation();
                                         if (loc.getWorld() == location.getWorld() && loc.getX() == location.getX() && loc.getY() == location.getY() && loc.getZ() == location.getZ()) {
-                                            event.getPlayer().sendMessage(ChatColor.RED + "Ender Cargo already linked !");
+                                            event.getPlayer().sendMessage(ChatColor.RED + "末影节点已被链接!");
                                             linked = true;
                                         }
                                     }
                                     if (!linked) {
                                         if (input.get(event.getPlayer()).getWorld().getName().equalsIgnoreCase(event.getClickedBlock().getLocation().getWorld().getName())) {
-                                            event.getPlayer().sendMessage(ChatColor.RED + "You can't link Ender Cargo in a same world !");
+                                            event.getPlayer().sendMessage(ChatColor.RED + "您无法在相同世界里链接两个末影节点!");
                                         } else {
                                             EnderCargoData.linkCargo(input.get(event.getPlayer()), event.getClickedBlock().getLocation());
                                             input.remove(event.getPlayer());
-                                            event.getPlayer().sendMessage(ChatColor.GREEN + "Ender Cargo Linked !");
+                                            event.getPlayer().sendMessage(ChatColor.GREEN + "末影节点成功链接!");
                                         }
                                     }
                                 }
@@ -79,7 +79,7 @@ public class EnderCargoLinker implements Listener {
                         }
                     } else if (event.getAction() == Action.LEFT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_BLOCK) {
                         input.remove(event.getPlayer());
-                        event.getPlayer().sendMessage(ChatColor.GREEN + "Ender Cargo Linker has been reset !");
+                        event.getPlayer().sendMessage(ChatColor.GREEN + "末影节点链接器已被重置!");
                     }
                 }
             }

@@ -36,15 +36,15 @@ public class EnderCargo extends JavaPlugin implements SlimefunAddon {
         getServer().getPluginManager().registerEvents(new EnderCargoLinker(this), this);
 
         //Creating a new category
-        ItemStack itemGroupItem = new CustomItemStack(Material.ENDER_EYE, "&5Ender Cargo", "", "&a> Click to open");
+        ItemStack itemGroupItem = new CustomItemStack(Material.ENDER_EYE, "&5末影接口", "", "&a> 单击打开");
         NamespacedKey itemGroupId = new NamespacedKey(this, "endercargo_category");
         ItemGroup itemGroup = new ItemGroup(itemGroupId, itemGroupItem);
 
         //Create Slimefun Itemstacks
-        SlimefunItemStack ender_input = new SlimefunItemStack("ENDER_INPUT", EnderCargoInput.blockMaterial, EnderCargoInput.blockName, "&7Use the ender force to teleport", "&7items between worlds");
-        SlimefunItemStack ender_output = new SlimefunItemStack("ENDER_OUTPUT", EnderCargoOutput.blockMaterial, EnderCargoOutput.blockName, "&7Use the ender force to teleport", "&7items between worlds");
-        SlimefunItemStack advanced_ender_output = new SlimefunItemStack("ADVANCED_ENDER_OUTPUT", EnderCargoAdvancedOutput.blockMaterial, EnderCargoAdvancedOutput.blockName, "&7Use the ender force to teleport", "&7items between worlds");
-        SlimefunItemStack ender_linker = new SlimefunItemStack("ENDER_LINKER", EnderCargoLinker.itemMaterial, EnderCargoLinker.itemName, "&7&eShift + Right Click&7 to link", "&7&eLeft Click&7 to reset");
+        SlimefunItemStack ender_input = new SlimefunItemStack("ENDER_INPUT", EnderCargoInput.blockMaterial, EnderCargoInput.blockName, "&7利用末影的力量", "&7跨维度运输物品");
+        SlimefunItemStack ender_output = new SlimefunItemStack("ENDER_OUTPUT", EnderCargoOutput.blockMaterial, EnderCargoOutput.blockName, "&7利用末影的力量", "&7跨维度运输物品");
+        SlimefunItemStack advanced_ender_output = new SlimefunItemStack("ADVANCED_ENDER_OUTPUT", EnderCargoAdvancedOutput.blockMaterial, EnderCargoAdvancedOutput.blockName, "&7利用末影的力量", "&7跨维度运输物品");
+        SlimefunItemStack ender_linker = new SlimefunItemStack("ENDER_LINKER", EnderCargoLinker.itemMaterial, EnderCargoLinker.itemName, "&7&eShift+右击&7 链接两个接口", "&7&e左击&7 重置");
 
         //Creating Recipes
         ItemStack[] ender_input_recipe = {null, SlimefunItems.INFUSED_HOPPER, null, SlimefunItems.ENDER_LUMP_3, SlimefunItems.CARGO_CONNECTOR_NODE, SlimefunItems.ENDER_LUMP_3, null, SlimefunItems.INFUSED_HOPPER, null};
