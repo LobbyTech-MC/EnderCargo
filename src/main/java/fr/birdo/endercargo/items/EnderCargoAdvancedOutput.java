@@ -74,7 +74,7 @@ public class EnderCargoAdvancedOutput implements Listener {
                         Container container = (Container) event.getClickedBlock().getState();
                         if (container.getCustomName().equalsIgnoreCase(blockName)) {
                             event.setCancelled(true);
-                            Inventory inventory = Bukkit.createInventory(null, InventoryType.DISPENSER, "§3Ender Cargo Node view (Output)");
+                            Inventory inventory = Bukkit.createInventory(null, InventoryType.DISPENSER, "§3末影节点视图 (输出)");
                             inventory.setContents(container.getInventory().getContents());
                             event.getPlayer().openInventory(inventory);
                         }
@@ -83,7 +83,7 @@ public class EnderCargoAdvancedOutput implements Listener {
                             String displayName = event.getItem().getItemMeta().getDisplayName();
                             Container container = (Container) event.getClickedBlock().getState();
                             if (container.getCustomName().equalsIgnoreCase(blockName))
-                                if (displayName.equalsIgnoreCase("§7Cargo Node §c(Output)") || displayName.equalsIgnoreCase("§6Advanced Cargo Node §c(Output)"))
+                                if (displayName.equalsIgnoreCase("§7节点模式 §c(输出)") || displayName.equalsIgnoreCase("§6高级节点模式 §c(输出)"))
                                     event.setCancelled(true);
                         }
                     }
