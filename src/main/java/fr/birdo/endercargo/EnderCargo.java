@@ -44,7 +44,7 @@ public class EnderCargo extends JavaPlugin implements SlimefunAddon {
         SlimefunItemStack ender_input = new SlimefunItemStack("ENDER_INPUT", EnderCargoInput.blockMaterial, EnderCargoInput.blockName, "&7利用末影的力量传送物品", "&7在世界之间");
         SlimefunItemStack ender_output = new SlimefunItemStack("ENDER_OUTPUT", EnderCargoOutput.blockMaterial, EnderCargoOutput.blockName, "&7利用末影的力量传送物品", "&7在世界之间");
         SlimefunItemStack advanced_ender_output = new SlimefunItemStack("ADVANCED_ENDER_OUTPUT", EnderCargoAdvancedOutput.blockMaterial, EnderCargoAdvancedOutput.blockName, "&7利用末影的力量传送物品", "&7在世界之间");
-        SlimefunItemStack ender_linker = new SlimefunItemStack("ENDER_LINKER", EnderCargoLinker.itemMaterial, EnderCargoLinker.itemName, "&7&eShift+右击&7 链接两个接口", "&7&e单击&7 复原");
+        SlimefunItemStack ender_linker = new SlimefunItemStack("ENDER_LINKER", EnderCargoLinker.itemMaterial, EnderCargoLinker.itemName, "&7&eShift+右击&7 链接两个接口", "&7&e单击&7 重置");
 
         //Creating Recipes
         ItemStack[] ender_input_recipe = {null, SlimefunItems.INFUSED_HOPPER, null, SlimefunItems.ENDER_LUMP_3, SlimefunItems.CARGO_CONNECTOR_NODE, SlimefunItems.ENDER_LUMP_3, null, SlimefunItems.INFUSED_HOPPER, null};
