@@ -20,8 +20,8 @@ import org.bukkit.inventory.Inventory;
 
 public class EnderCargoOutput implements Listener {
 
-    public static final String blockName = "§3Ender Cargo Node §b(Output)";
-    public static final Material blockMaterial = Material.DISPENSER;
+    public static final String blockName = "§3末影接口 §b(输出)";
+    public static final Material blockMaterial = Material.BIRCH_FENCE;
 
     public EnderCargoOutput(EnderCargo enderCargo) {
     }
@@ -74,7 +74,7 @@ public class EnderCargoOutput implements Listener {
                             String displayName = event.getItem().getItemMeta().getDisplayName();
                             Container container = (Container) event.getClickedBlock().getState();
                             if (container.getCustomName().equalsIgnoreCase(blockName))
-                                if (displayName.equalsIgnoreCase("§7Cargo Node §c(Output)") || displayName.equalsIgnoreCase("§6Advanced Cargo Node §c(Output)"))
+                                if (displayName.equalsIgnoreCase("§7节点模式 §c(输出)") || displayName.equalsIgnoreCase("§6高级节点模式 §c(输出)"))
                                     event.setCancelled(true);
                         }
                     }
