@@ -12,6 +12,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
+import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -30,6 +31,9 @@ public class EnderCargo extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        if (getConfig().getBoolean("options.auto-update") && getDescription().getVersion().startsWith("Build")) {
+            new GuizhanBuildsUpdater(this, getFile(), "SlimefunGuguProject", "Ender-Cargo", "master", false, "zh-CN").start();
+        }
         getServer().getPluginManager().registerEvents(new EnderCargoInput(this), this);
         getServer().getPluginManager().registerEvents(new EnderCargoOutput(this), this);
         getServer().getPluginManager().registerEvents(new EnderCargoAdvancedOutput(this), this);
@@ -89,8 +93,7 @@ public class EnderCargo extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public String getBugTrackerURL() {
-        // You can return a link to your Bug Tracker instead of null here
-        return null;
+        return "https://github.com/SlimefunGuguProject/Ender-Cargo/issues";
     }
 
     @Override

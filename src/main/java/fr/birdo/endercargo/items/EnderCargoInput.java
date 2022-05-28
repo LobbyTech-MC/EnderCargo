@@ -68,7 +68,7 @@ public class EnderCargoInput implements Listener {
 
     @EventHandler
     public void onClickInv(InventoryClickEvent event) {
-        if (event.getView().getTitle().equalsIgnoreCase("§3Ender Cargo Node view (Input)"))
+        if (event.getView().getTitle().equalsIgnoreCase("§3末影节点视图 (输入)"))
             event.setCancelled(true);
     }
 
