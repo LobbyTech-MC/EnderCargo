@@ -41,9 +41,9 @@ public class EnderCargo extends JavaPlugin implements SlimefunAddon {
         ItemGroup itemGroup = new ItemGroup(itemGroupId, itemGroupItem);
 
         //Create Slimefun Itemstacks
-        SlimefunItemStack ender_input = new SlimefunItemStack("ENDER_INPUT", EnderCargoInput.blockMaterial, EnderCargoInput.blockName, "&7利用末影的力量传送物品", "&7在世界之间");
-        SlimefunItemStack ender_output = new SlimefunItemStack("ENDER_OUTPUT", EnderCargoOutput.blockMaterial, EnderCargoOutput.blockName, "&7利用末影的力量传送物品", "&7在世界之间");
-        SlimefunItemStack advanced_ender_output = new SlimefunItemStack("ADVANCED_ENDER_OUTPUT", EnderCargoAdvancedOutput.blockMaterial, EnderCargoAdvancedOutput.blockName, "&7利用末影的力量传送物品", "&7在世界之间");
+        SlimefunItemStack ender_input = new SlimefunItemStack("ENDER_INPUT", EnderCargoInput.blockMaterial, EnderCargoInput.blockName, "&7利用末影的力量", "&7跨维度运输物品");
+        SlimefunItemStack ender_output = new SlimefunItemStack("ENDER_OUTPUT", EnderCargoOutput.blockMaterial, EnderCargoOutput.blockName, "&7利用末影的力量", "&7跨维度运输物品");
+        SlimefunItemStack advanced_ender_output = new SlimefunItemStack("ADVANCED_ENDER_OUTPUT", EnderCargoAdvancedOutput.blockMaterial, EnderCargoAdvancedOutput.blockName, "&7利用末影的力量", "&7跨维度运输物品");
         SlimefunItemStack ender_linker = new SlimefunItemStack("ENDER_LINKER", EnderCargoLinker.itemMaterial, EnderCargoLinker.itemName, "&7&eShift+右击&7 链接两个接口", "&7&e左击&7 重置");
 
         //Creating Recipes
