@@ -19,8 +19,8 @@ import org.bukkit.inventory.Inventory;
 
 public class EnderCargoAdvancedOutput implements Listener {
 
-    public static final String blockName = "§3Advanced Ender Cargo Node §b(Output)";
-    public static final Material blockMaterial = Material.DISPENSER;
+    public static final String blockName = "§3高级末影接口 §b(输出)";
+    public static final Material blockMaterial = Material.END_STONE_BRICK_WALL;
 
     public EnderCargoAdvancedOutput(EnderCargo enderCargo) {
     }
