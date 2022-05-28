@@ -20,8 +20,8 @@ import org.bukkit.inventory.Inventory;
 
 public class EnderCargoInput implements Listener {
 
-    public static final String blockName = "§3Ender Cargo Node §b(Input)";
-    public static final Material blockMaterial = Material.DISPENSER;
+    public static final String blockName = "§3末影接口 §b(输入)";
+    public static final Material blockMaterial = Material.WARPED_FENCE;
 
     public EnderCargoInput(EnderCargo enderCargo) {
     }
@@ -81,7 +81,7 @@ public class EnderCargoInput implements Listener {
                         Container container = (Container) event.getClickedBlock().getState();
                         if (container.getCustomName().equalsIgnoreCase(blockName)) {
                             event.setCancelled(true);
-                            Inventory inventory = Bukkit.createInventory(null, InventoryType.DISPENSER, "§3Ender Cargo Node view (Input)");
+                            Inventory inventory = Bukkit.createInventory(null, InventoryType.DISPENSER, "§3末影节点视图 (输入)");
                             inventory.setContents(container.getInventory().getContents());
                             event.getPlayer().openInventory(inventory);
                         }
@@ -90,7 +90,7 @@ public class EnderCargoInput implements Listener {
                             String displayName = event.getItem().getItemMeta().getDisplayName();
                             Container container = (Container) event.getClickedBlock().getState();
                             if (container.getCustomName().equalsIgnoreCase(blockName))
-                                if (displayName.equalsIgnoreCase("§7Cargo Node §c(Input)"))
+                                if (displayName.equalsIgnoreCase("§7节点模式 §c(输入)"))
                                     event.setCancelled(true);
                         }
                     }
