@@ -1,9 +1,5 @@
 package fr.birdo.endercargo.items;
 
-import fr.birdo.endercargo.EnderCargo;
-import fr.birdo.endercargo.Utils.EnderCargoData;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Container;
 import org.bukkit.block.Dispenser;
@@ -12,11 +8,12 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockDispenseEvent;
-import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryMoveItemEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.Inventory;
+
+import fr.birdo.endercargo.EnderCargo;
+import fr.birdo.endercargo.Utils.EnderCargoData;
 
 public class EnderCargoOutput implements Listener {
 
