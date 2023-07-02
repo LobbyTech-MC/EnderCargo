@@ -15,7 +15,7 @@ public class EnderCargoData {
 
     public static void linkCargo(Location input, Location output) {
         FileConfiguration cfg = getConfigFile();
-        List outputList = new ArrayList<String>();
+        List<String> outputList = new ArrayList<String>();
         if (getLinkedCargo() != null) {
             for (String str : getLinkedCargo()) {
                 outputList.add(str);
@@ -30,7 +30,7 @@ public class EnderCargoData {
 
     public static void unlinkCargo(Location output) {
         FileConfiguration cfg = getConfigFile();
-        List outputList = new ArrayList<String>();
+        List<String> outputList = new ArrayList<String>();
         if (getLinkedCargo() != null) {
             for (String str : getLinkedCargo()) {
                 outputList.add(str);
