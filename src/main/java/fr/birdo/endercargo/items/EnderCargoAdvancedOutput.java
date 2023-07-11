@@ -38,7 +38,7 @@ public class EnderCargoAdvancedOutput implements Listener {
     public void onBreak(BlockBreakEvent event) {
         if (event.getBlock().getType() == blockMaterial) {
             Dispenser d = (Dispenser) event.getBlock().getState();
-            if (d.getCustomName().equalsIgnoreCase(blockName)) {
+            if (d.getCustomName() != null && d.getCustomName().equalsIgnoreCase(blockName)) {
                 Container container = (Container) event.getBlock().getState();
                 container.getInventory().clear();
                 EnderCargoData.unlinkCargo(event.getBlock().getLocation());
@@ -50,11 +50,11 @@ public class EnderCargoAdvancedOutput implements Listener {
     public void onMove(InventoryMoveItemEvent event) {
         if (event.getSource().getType() == InventoryType.HOPPER && event.getDestination().getType() == InventoryType.DISPENSER) {
             Container destinationContainer = (Container) event.getDestination().getHolder();
-            if (destinationContainer.getCustomName().equalsIgnoreCase(blockName))
+            if (destinationContainer.getCustomName() != null && destinationContainer.getCustomName().equalsIgnoreCase(blockName))
                 event.setCancelled(true);
         } else if (event.getDestination().getType() == InventoryType.HOPPER && event.getSource().getType() == InventoryType.DISPENSER) {
             Container sourceContainer = (Container) event.getSource().getHolder();
-            if (sourceContainer.getCustomName().equalsIgnoreCase(blockName))
+            if (sourceContainer.getCustomName() != null && sourceContainer.getCustomName().equalsIgnoreCase(blockName))
                 event.setCancelled(true);
         }
     }
@@ -72,7 +72,7 @@ public class EnderCargoAdvancedOutput implements Listener {
                 if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
                     if (!event.getPlayer().isSneaking() || event.getItem() == null) {
                         Container container = (Container) event.getClickedBlock().getState();
-                        if (container.getCustomName().equalsIgnoreCase(blockName)) {
+                        if (container.getCustomName() != null && container.getCustomName().equalsIgnoreCase(blockName)) {
                             event.setCancelled(true);
                             Inventory inventory = Bukkit.createInventory(null, InventoryType.DISPENSER, "§3末影节点视图 (输出)");
                             inventory.setContents(container.getInventory().getContents());
@@ -82,7 +82,7 @@ public class EnderCargoAdvancedOutput implements Listener {
                         if (event.getItem().hasItemMeta() && event.getItem().getItemMeta().hasDisplayName()) {
                             String displayName = event.getItem().getItemMeta().getDisplayName();
                             Container container = (Container) event.getClickedBlock().getState();
-                            if (container.getCustomName().equalsIgnoreCase(blockName))
+                            if (container.getCustomName() != null && container.getCustomName().equalsIgnoreCase(blockName))
                                 if (displayName.equalsIgnoreCase("§7节点模式 §c(输出)") || displayName.equalsIgnoreCase("§6高级节点模式 §c(输出)"))
                                     event.setCancelled(true);
                         }
