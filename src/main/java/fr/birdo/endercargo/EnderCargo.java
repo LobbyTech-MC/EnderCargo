@@ -2,6 +2,7 @@ package fr.birdo.endercargo;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
