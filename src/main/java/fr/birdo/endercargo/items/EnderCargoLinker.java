@@ -34,7 +34,7 @@ public class EnderCargoLinker implements Listener {
                     if (event.getAction() == Action.RIGHT_CLICK_BLOCK && event.getPlayer().isSneaking()) {
                         if (event.getClickedBlock().getType() == Material.DISPENSER) {
                             Dispenser d = (Dispenser) event.getClickedBlock().getState();
-                            if (d.getCustomName().equalsIgnoreCase(EnderCargoInput.blockName)) {//Ender Input
+                            if (d.getCustomName() != null && d.getCustomName().equalsIgnoreCase(EnderCargoInput.blockName)) {//Ender Input
                                 boolean linked = false;
                                 for (String string : EnderCargoData.getLinkedCargo()) {
                                     String[] str = string.split(" ");
