@@ -21,7 +21,7 @@ import org.bukkit.inventory.Inventory;
 public class EnderCargoOutput implements Listener {
 
     public static final String blockName = "§3末影接口 §b(输出)";
-    public static final Material blockMaterial = Material.BIRCH_FENCE;
+    public static final Material blockMaterial = Material.DISPENSER;
 
     public EnderCargoOutput(EnderCargo enderCargo) {
     }
