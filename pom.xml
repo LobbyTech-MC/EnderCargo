@@ -8,8 +8,8 @@
     <version>1.0.0</version>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>16</maven.compiler.source>
+        <maven.compiler.target>16</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -53,13 +53,6 @@
 
                 <configuration>
                     <minimizeJar>true</minimizeJar>
-                    <!-- Shade dependencies into the output jar -->
-                    <relocations>
-                        <relocation>
-                            <pattern>net.guizhanss.guizhanlib</pattern>
-                            <shadedPattern>fr.birdo.endercargo.libs.guizhanlib</shadedPattern>
-                        </relocation>
-                    </relocations>
 
                     <!-- Exclude unneeded metadata files from shaded dependencies -->
                     <filters>
@@ -108,9 +101,9 @@
 
         <dependency>
             <groupId>net.guizhanss</groupId>
-            <artifactId>GuizhanLib</artifactId>
-            <version>1.2.1</version>
-            <scope>compile</scope>
+            <artifactId>GuizhanLibPlugin</artifactId>
+            <version>1.7.0</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
         	<groupId>net.guizhanss</groupId>

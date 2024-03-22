@@ -18,7 +18,7 @@ import fr.birdo.endercargo.Utils.EnderCargoData;
 public class EnderCargoOutput implements Listener {
 
     public static final String blockName = "§3末影接口 §b(输出)";
-    public static final Material blockMaterial = Material.BIRCH_FENCE;
+    public static final Material blockMaterial = Material.DISPENSER;
 
     public EnderCargoOutput(EnderCargo enderCargo) {
     }
@@ -71,7 +71,7 @@ public class EnderCargoOutput implements Listener {
                             String displayName = event.getItem().getItemMeta().getDisplayName();
                             Container container = (Container) event.getClickedBlock().getState();
                             if (container.getCustomName() != null && container.getCustomName().equalsIgnoreCase(blockName))
-                                if (displayName.equalsIgnoreCase("§§7节点模式 §c(输出)") || displayName.equalsIgnoreCase("§§6高级节点模式 §c(输出)"))
+                                if (displayName.equalsIgnoreCase("§7节点模式 §c(输出)") || displayName.equalsIgnoreCase("§6高级节点模式 §c(输出)"))
                                     event.setCancelled(true);
                         }
                     }

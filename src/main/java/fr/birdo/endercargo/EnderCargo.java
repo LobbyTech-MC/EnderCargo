@@ -24,7 +24,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
-import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater;
+import net.guizhanss.guizhanlibplugin.updater.GuizhanUpdater;
 
 public class EnderCargo extends JavaPlugin implements SlimefunAddon {
 
@@ -32,8 +32,15 @@ public class EnderCargo extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        if (!getServer().getPluginManager().isPluginEnabled("GuizhanLibPlugin")) {
+            getLogger().log(Level.SEVERE, "本插件需要 鬼斩前置库插件(GuizhanLibPlugin) 才能运行!");
+            getLogger().log(Level.SEVERE, "从此处下载: https://50l.cc/gzlib");
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
+
         if (getConfig().getBoolean("options.auto-update") && getDescription().getVersion().startsWith("Build")) {
-            new GuizhanBuildsUpdater(this, getFile(), "SlimefunGuguProject", "Ender-Cargo", "master", false, "zh-CN").start();
+            GuizhanUpdater.start(this, getFile(), "SlimefunGuguProject", "Ender-Cargo", "master");
         }
         getServer().getPluginManager().registerEvents(new EnderCargoInput(this), this);
         getServer().getPluginManager().registerEvents(new EnderCargoOutput(this), this);
