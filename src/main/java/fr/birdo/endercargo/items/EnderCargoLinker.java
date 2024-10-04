@@ -34,7 +34,7 @@ public class EnderCargoLinker implements Listener {
                     if (event.getAction() == Action.RIGHT_CLICK_BLOCK && event.getPlayer().isSneaking()) {
                         if (event.getClickedBlock().getType() == Material.DISPENSER) {
                             Dispenser d = (Dispenser) event.getClickedBlock().getState();
-                            if (d.getCustomName() != null && d.getCustomName().equalsIgnoreCase(EnderCargoInput.blockName)) {//Ender Input
+                            if (EnderCargoInput.blockName.equalsIgnoreCase(d.getCustomName())) {//Ender Input
                                 boolean linked = false;
                                 for (String string : EnderCargoData.getLinkedCargo()) {
                                     String[] str = string.split(" ");
@@ -51,7 +51,7 @@ public class EnderCargoLinker implements Listener {
                                     event.getPlayer().sendMessage(ChatColor.GREEN + "输入选定的末影节点!");
                                 }
                             }
-                            if (d.getCustomName().equalsIgnoreCase(EnderCargoOutput.blockName) || d.getCustomName().equalsIgnoreCase(EnderCargoAdvancedOutput.blockName)) {//Output
+                            if (EnderCargoOutput.blockName.equalsIgnoreCase(d.getCustomName()) || EnderCargoAdvancedOutput.blockName.equalsIgnoreCase(d.getCustomName())) {//Output
                                 boolean linked = false;
                                 if (input.get(event.getPlayer()) == null) {
                                     event.getPlayer().sendMessage(ChatColor.RED + "请输入下一个末影节点!");
