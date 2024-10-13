@@ -36,7 +36,7 @@ public class EnderCargoOutput implements Listener {
     public void onBreak(BlockBreakEvent event) {
         if (event.getBlock().getType() == blockMaterial) {
             Dispenser d = (Dispenser) event.getBlock().getState();
-            if (d.getCustomName() != null && d.getCustomName().equalsIgnoreCase(blockName)) {
+            if (blockName.equalsIgnoreCase(d.getCustomName())) {
                 Container container = (Container) event.getBlock().getState();
                 container.getInventory().clear();
                 EnderCargoData.unlinkCargo(event.getBlock().getLocation());
@@ -48,11 +48,11 @@ public class EnderCargoOutput implements Listener {
     public void onMove(InventoryMoveItemEvent event) {
         if (event.getSource().getType() == InventoryType.HOPPER && event.getDestination().getType() == InventoryType.DISPENSER) {
             Container destinationContainer = (Container) event.getDestination().getHolder();
-            if (destinationContainer.getCustomName() != null && destinationContainer.getCustomName().equalsIgnoreCase(blockName))
+            if (blockName.equalsIgnoreCase(destinationContainer.getCustomName()))
                 event.setCancelled(true);
         } else if (event.getDestination().getType() == InventoryType.HOPPER && event.getSource().getType() == InventoryType.DISPENSER) {
             Container sourceContainer = (Container) event.getSource().getHolder();
-            if (sourceContainer.getCustomName() != null && sourceContainer.getCustomName().equalsIgnoreCase(blockName))
+            if (blockName.equalsIgnoreCase(sourceContainer.getCustomName()))
                 event.setCancelled(true);
         }
     }
@@ -64,13 +64,13 @@ public class EnderCargoOutput implements Listener {
                 if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
                     if (!event.getPlayer().isSneaking() || event.getItem() == null) {
                         Container container = (Container) event.getClickedBlock().getState();
-                        if (container.getCustomName() != null && container.getCustomName().equalsIgnoreCase(blockName))
+                        if (blockName.equalsIgnoreCase(container.getCustomName()))
                             event.setCancelled(true);
                     } else if (event.getPlayer().isSneaking() && event.getItem() != null) {
                         if (event.getItem().hasItemMeta() && event.getItem().getItemMeta().hasDisplayName()) {
                             String displayName = event.getItem().getItemMeta().getDisplayName();
                             Container container = (Container) event.getClickedBlock().getState();
-                            if (container.getCustomName() != null && container.getCustomName().equalsIgnoreCase(blockName))
+                            if (blockName.equalsIgnoreCase(container.getCustomName()))
                                 if (displayName.equalsIgnoreCase("§7节点模式 §c(输出)") || displayName.equalsIgnoreCase("§6高级节点模式 §c(输出)"))
                                     event.setCancelled(true);
                         }
